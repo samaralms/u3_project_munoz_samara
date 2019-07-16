@@ -1,22 +1,9 @@
-#VRML_SIM R2019a utf8
-WorldInfo {
-}
-Viewpoint {
-  orientation 0.4941343129229817 0.8304534020677693 0.25725168179469854 5.163257105793786
-  position -6.521735886985152 7.192611235819769 4.794997964762423
-}
-TexturedBackground {
-}
-TexturedBackgroundLight {
-}
-Floor {
-}
+#VRML_OBJ R2019a utf8
 Robot {
-  translation 0 0.10000000000000002 0
-  rotation 0 1 0 1.0471975479999998
+  translation 0 0.1 0
   children [
     DEF BODY Shape {
-      appearance DEF PURPLE PBRAppearance {
+      appearance PBRAppearance {
         baseColor 0.6924238956282902 0.16743724727244982 0.9133287556267643
         roughness 1
       }
@@ -741,72 +728,60 @@ Robot {
         }
       ]
     }
-    DEF FRONT_BAR Transform {
-      translation 0.0779422855494415 0.049999999999999975 0.04500000137032578
+    DEF BARRA_10CM Transform {
+      translation 0.12124355529913125 0.03 0.07000000213161787
       rotation 0 1 0 5.7595865139999995
       children [
-        DEF BOT_BOX Shape {
-          appearance USE PURPLE
+        Shape {
+          appearance PBRAppearance {
+          }
           geometry Box {
-            size 0.05 0.1 0.1
+            size 0.01 0.01 0.1
           }
         }
-        DEF BARRA_10CM Transform {
-          translation 0.031243555299131264 0.03999999999999999 2.1316178561853194e-09
-          rotation 0 1 0 6.283185307179586
+        DEF DIS_SENSORS Transform {
           children [
-            Shape {
-              appearance PBRAppearance {
-              }
-              geometry Box {
-                size 0.01 0.01 0.1
-              }
-            }
-            DEF FRONT_SENSORS Transform {
+            DistanceSensor {
+              translation 0 0 0.055
+              rotation 0 1 0 -0.0872665
               children [
-                DEF DS_RIGHT DistanceSensor {
-                  translation 0 0 0.055
-                  rotation 0 1 0 -0.0872665
-                  children [
-                    Shape {
-                      appearance DEF GREEN PBRAppearance {
-                        baseColor 0.45098039215686275 0.8235294117647058 0.08627450980392157
-                        metalness 0
-                      }
-                      geometry DEF BOX1 Box {
-                        size 0.01 0.01 0.01
-                      }
-                    }
-                  ]
-                  name "ds_right"
-                  lookupTable [
-                    0 0 0
-                    0.2 65535 0
-                  ]
-                  resolution 1
-                }
-                DEF DS_LEFT DistanceSensor {
-                  translation 0 0 -0.055
-                  rotation 0 1 0 0.0872665
-                  children [
-                    Shape {
-                      appearance DEF GREEN PBRAppearance {
-                        baseColor 0.45098039215686275 0.8235294117647058 0.08627450980392157
-                        metalness 0
-                      }
-                      geometry DEF BOX1 Box {
-                        size 0.01 0.01 0.01
-                      }
-                    }
-                  ]
-                  name "ds_left"
-                  lookupTable [
-                    0 0 0
-                    0.2 65535 0
-                  ]
-                  resolution 1
+                Shape {
+                  appearance DEF GREEN PBRAppearance {
+                    baseColor 0.45098039215686275 0.8235294117647058 0.08627450980392157
+                    metalness 0
+                  }
+                  geometry DEF BOX1 Box {
+                    size 0.01 0.01 0.01
+                  }
                 }
               ]
+              name "ds_right"
+              lookupTable [
+                0 0 0
+                0.2 65535 0
+              ]
+              resolution 1
+            }
+            DistanceSensor {
+              translation 0 0 -0.055
+              rotation 0 1 0 0.0872665
+              children [
+                Shape {
+                  appearance DEF GREEN PBRAppearance {
+                    baseColor 0.45098039215686275 0.8235294117647058 0.08627450980392157
+                    metalness 0
+                  }
+                  geometry DEF BOX1 Box {
+                    size 0.01 0.01 0.01
+                  }
+                }
+              ]
+              name "ds_left"
+              lookupTable [
+                0 0 0
+                0.2 65535 0
+              ]
+              resolution 1
             }
           ]
         }
@@ -816,23 +791,5 @@ Robot {
   boundingObject USE BODY
   physics Physics {
   }
-  controller "u3_exam_munoz_samara"
-}
-Solid {
-  children [
-    Ball {
-      translation 1.3700000000000008 0.2024999999999999 -1.0900000000000005
-      radius 0.2
-    }
-  ]
-}
-Solid {
-  translation 2.2599999999999993 0 0.31000000000000005
-  children [
-    Ball {
-      translation 1.3700000000000008 0.2024999999999999 -1.0900000000000005
-      radius 0.2
-    }
-  ]
-  name "solid(1)"
+  controller "u2_exam_munoz_samara"
 }
